@@ -3,8 +3,10 @@ package main
 import (
 	"log"
 	"net"
-
+	
+	"grpc-category/server/category"
 	"google.golang.org/grpc"
+	cpb "grpc-category/proto/category"
 )
 
 func main() {
@@ -15,6 +17,11 @@ func main() {
 	}
 
 	grpcServer := grpc.NewServer()
+
+	s:=category.Server{}
+
+	cpb.RegisterCategoryServiceServer(grpcServer,&s)
+
 
 	if err :=grpcServer.Serve(lis);err!=nil {
 		log.Fatalf("failed to Serve:%s", err)
