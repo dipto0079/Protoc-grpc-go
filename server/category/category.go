@@ -4,6 +4,9 @@ import (
 	"context"
 	cpb "grpc-category/proto/category"
 	"log"
+
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type Server struct{}
@@ -43,6 +46,10 @@ func (s *Server) GetCategory(ctx context.Context, req *cpb.GetCategoryRequest) (
 			category = c
 			break
 		}
+	}
+
+	if category.ID == 0{
+		return &cpb.GetCategoryResponse{},status.Errorf(codes.NotFound,"invalid id")
 	}
 
 	return &cpb.GetCategoryResponse{
