@@ -14,11 +14,17 @@ func main() {
 		log.Fatalf("failed to Connect:%s", err)
 	}
 	categoryClient := category.NewClient(conn)
+
 	res, err := categoryClient.GetCategory(3)
 
 	if err != nil {
 		log.Fatalf("error while calling GetCategory:%s", err)
 	}
-
+	
 	log.Printf("Response", res)
+
+	if err := categoryClient.GetCategorys(); err != nil {
+		log.Fatalf("error while calling GetCategorys:%s", err)
+	}
+
 }

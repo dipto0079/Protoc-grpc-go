@@ -10,10 +10,13 @@ message GetCategoryRequest{
 
 message GetCategoryResponse{
     int64 ID = 1;
-    string Title =2;
+    string Title = 2;
     string Description = 3;
 }
 
+message GetCategorysRequest{}
+
 service CategoryService{
     rpc GetCategory(GetCategoryRequest) returns(GetCategoryResponse){}
+    rpc GetCategorys(GetCategorysRequest) returns(stream GetCategoryResponse){}
 }
