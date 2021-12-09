@@ -12,6 +12,8 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+
+
 type Server struct{}
 
 type Category struct {
@@ -19,6 +21,8 @@ type Category struct {
 	Title       string
 	Description string
 }
+
+
 
 func (s *Server) GetCategory(ctx context.Context, req *cpb.GetCategoryRequest) (*cpb.GetCategoryResponse, error) {
 	log.Printf("Category ID:%d", req.GetID())
