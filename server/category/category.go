@@ -20,6 +20,8 @@ type Category struct {
 	Description string
 }
 
+
+
 func (s *Server) GetCategory(ctx context.Context, req *cpb.GetCategoryRequest) (*cpb.GetCategoryResponse, error) {
 	log.Printf("Category ID:%d", req.GetID())
 	var category Category
