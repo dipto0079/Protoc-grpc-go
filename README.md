@@ -1,2 +1,4 @@
 # grpc-go
-Proto
+
+# Protoc
+protoc --go_out=plugins=grpc:. proto/category/category.proto

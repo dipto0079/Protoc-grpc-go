@@ -18,6 +18,5 @@ message GetCategorysRequest{}
 
 service CategoryService{
     rpc GetCategory(GetCategoryRequest) returns(GetCategoryResponse){}
-    
     rpc GetCategorys(GetCategorysRequest) returns(stream GetCategoryResponse){}
 }
