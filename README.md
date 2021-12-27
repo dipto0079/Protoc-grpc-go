@@ -7,7 +7,9 @@
 # Get Dummy Data
 `
 func (s *Server) getDummyCategory(count int) []Category {
+
 	var categories []Category
+
 	for i := 0; i < count; i++ {
 		categories = append(categories, Category{
 			ID:          int64(i),
@@ -15,6 +17,7 @@ func (s *Server) getDummyCategory(count int) []Category {
 			Description: "This is Description  " + strconv.Itoa(i),
 		})
 	}
+    
 	return categories
 }
 `
