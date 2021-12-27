@@ -5,24 +5,17 @@ import (
 	"log"
 	"strconv"
 	"time"
-
 	cpb "grpc-category/proto/category"
-
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-
-
 type Server struct{}
-
 type Category struct {
 	ID          int64
 	Title       string
 	Description string
 }
-
-
 
 func (s *Server) GetCategory(ctx context.Context, req *cpb.GetCategoryRequest) (*cpb.GetCategoryResponse, error) {
 	log.Printf("Category ID:%d", req.GetID())
